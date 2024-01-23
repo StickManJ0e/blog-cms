@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp';
 import LogOut from './pages/LogOut';
 import PostCreate from './components/Post/PostCreate';
 import Post from './components/Post/Post';
+import PostEdit from './components/Post/PostEdit';
 import './styles/App.css';
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route exact path='/log-out' element={<LogOut />} />
         <Route exact path='/create-post' element={loggedIn ? <PostCreate /> : <Navigate to='/' />} />
         <Route exact path='/posts/:id' element={loggedIn ? <Post /> : <Navigate to='/' />} />
+        <Route exact path='/posts/:id/edit' element={loggedIn ? <PostEdit /> : <Navigate to='/' />} />
       </Routes>
     </BrowserRouter>
   )

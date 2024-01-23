@@ -6,9 +6,7 @@ import Navbar from "../Navbar/Navbar";
 import { useParams } from "react-router-dom";
 
 const Post = () => {
-    const { register, handleSubmit } = useForm();
     const [post, setPost] = useState();
-    const [errors, setErrors] = useState('');
     const [redirect, setRedirect] = useState();
     const { id } = useParams();
     const { loggedIn, token, user } = useAuthContext();
@@ -77,7 +75,10 @@ const Post = () => {
                     <div className="header">
                         <div className="username">By {post.user.username}</div>
                         <div className="timestamp">{convertTimestamp(post.timestamp)}</div>
-                        <button className="delete" onClick={() => deleteOnClick(post)}>Delete</button>
+                        <div className="buttons">
+                            <button className="edit" onClick={() => navigate(`/posts/${id}/edit`)}>Edit</button>
+                            <button className="delete" onClick={() => deleteOnClick(post)}>Delete</button>
+                        </div>
                     </div>
                     <div className="body">
                         <div className="content">{post.content}</div>

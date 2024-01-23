@@ -42,6 +42,7 @@ const Posts = () => {
     return (
         <>
             <div className="blog-posts-div">
+                <h1>Your Posts</h1>
                 {(allPosts) ? allPosts.map((post) => {
                     return (
                         <div key={post._id} className="blog-post-div" onClick={() => navPost(post._id)}>
