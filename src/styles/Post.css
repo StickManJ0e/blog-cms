@@ -12,6 +12,8 @@
     border-radius: 0.5rem;
     padding: 1rem;
     width: 100%;
+    height: 100px;
+    overflow: hidden;
 }
 
 .blog-post-div:hover {
@@ -49,4 +51,10 @@
 
 .delete {
     background-color: rgb(204, 90, 90);
+}
+
+.blog-post-container > .header > .details {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }

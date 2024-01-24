@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import { useAuthContext } from "../../context/AuthContext";
 import Navbar from "../Navbar/Navbar";
 import { useParams } from "react-router-dom";
+import Comments from "./Comments";
 
 const Post = () => {
     const [post, setPost] = useState();
@@ -73,8 +73,11 @@ const Post = () => {
                 <div key={post._id} className="blog-post-container">
                     <h1 className="title">{post.title}</h1>
                     <div className="header">
-                        <div className="username">By {post.user.username}</div>
-                        <div className="timestamp">{convertTimestamp(post.timestamp)}</div>
+                        <div className="details">
+                            <div className="username">By {post.user.username}</div>
+                            <div>|</div>
+                            <div className="timestamp">{convertTimestamp(post.timestamp)}</div>
+                        </div>
                         <div className="buttons">
                             <button className="edit" onClick={() => navigate(`/posts/${id}/edit`)}>Edit</button>
                             <button className="delete" onClick={() => deleteOnClick(post)}>Delete</button>
@@ -83,7 +86,7 @@ const Post = () => {
                     <div className="body">
                         <div className="content">{post.content}</div>
                     </div>
-
+                    <Comments post={post} fetchPost={fetchPost} />
                 </div>
                 :
                 <div>Not Found</div>}

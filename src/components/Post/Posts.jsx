@@ -27,8 +27,8 @@ const Posts = () => {
     }
 
     const convertTimestamp = (timestamp) => {
-        let alteredTimestamp = new Date(timestamp).toDateString();
-        return (alteredTimestamp);
+        let alteredTimestamp = new Date(timestamp);
+        return (alteredTimestamp.toDateString());
     }
 
     const navPost = (postID) => {
